@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .counter-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .counter-value {
+            font-size: 2em;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #3498db;
+            color: white;
+        }
+        .btn-increase {
+            background-color: #2ecc71;
+        }
+        .btn-decrease {
+            background-color: #e74c3c;
+        }
+        .btn-reset {
+            background-color: #f39c12;
+        }
+        .alert {
+            color: red;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>Counter value: <span id="counter">0</span></p>
+        <input type="number" id="inputValue" placeholder="Enter a number">
+        <button id="increaseBtn">Increase</button>
+        <button id="decreaseBtn">Decrease</button>
+        <button id="resetBtn">Reset</button>
+    </div>
+
+    <script>
+        let counterValue = 0;
+        let resetCount = 0;
+
+        const counterDisplay = document.getElementById('counter');
+        const inputValue = document.getElementById('inputValue');
+        const increaseBtn = document.getElementById('increaseBtn');
+        const decreaseBtn = document.getElementById('decreaseBtn');
+        const resetBtn = document.getElementById('resetBtn');
+
+        function updateCounter() {
+            counterDisplay.textContent = counterValue;
+        }
+
+        function alertLimit() {
+            if (counterValue <= 0 && resetCount > 0) {
+                alert("The counter is already at 0 it cannot be reset again.");
+            } else if (counterValue >= 100) {
+                alert("You cannot add more than 100.");
+            } else if (counterValue <= -100) {
+                alert("You cannot subtract more than 100.");
+            }
+        }
+
+        increaseBtn.addEventListener('click', () => {
+            const value = parseInt(inputValue.value, 10);
+            if (!isNaN(value) && counterValue + value <= 100) {
+                counterValue += value;
+                updateCounter();
+            } else {
+                alert("You cannot add more than 100.");
+            }
+        });
+
+        decreaseBtn.addEventListener('click', () => {
+            const value = parseInt(inputValue.value, 10);
+            if (!isNaN(value) && counterValue - value >= -100) {
+                counterValue -= value;
+                updateCounter();
+            } else {
+                alert("You cannot subtract more than 100.");
+            }
+        });
+
+        resetBtn.addEventListener('click', () => {
+            if (counterValue === 0) {
+                resetCount++;
+            }
+            if (resetCount > 0 && counterValue === 0) {
+                alert("The counter is already at 0 it cannot be reset again.");
+            } else {
+                counterValue = 0;
+                resetCount = 0;
+                updateCounter();
+            }
+        });
+    </script>
+</body>
+</html>

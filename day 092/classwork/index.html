@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input class="in1" type="text">
+    <p></p>
+    <script>
+        const in1 = document.querySelector('.in1');
+        const p = document.querySelector('p')
+        in1.addEventListener('input', function(){
+            p.innerText = in1.value.length
+        })
+    </script>
+</body>
+</html>

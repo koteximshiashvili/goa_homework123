@@ -1,0 +1,29 @@
+
+.parent{
+    height: 90vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: 10px solid black;
+    column-gap: 2em;
+    row-gap: 2em;
+}
+.divp{
+    width: 150px;
+    height: 150px;
+    font-size: 7em;
+    text-align: center;
+    border-radius: 15px;
+}
+#mydiv1{
+    background-color: red;
+}
+#mydiv2{
+    background-color: yellow;
+}
+#mydiv3{
+    background-color: blue;
+}
+#mydiv4{
+    background-color: green;
+}

@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: black;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.gg a:first-child:hover{
+    font-size: 10px;
+    color: aqua;
+}
+.gg a:last-child:active{
+    background-color: brown;
+    color: red;
+}
+.gg a:nth-child(2){
+    font-size: x-large;
+    color: rgb(236, 213, 2);
+}
+.gg a:nth-child(3){
+    font-size: 10px;
+    color: goldenrod;
+}
+.gg a:nth-child(3){
+    font-size: 10px;
+    color: palegreen;
+}
+.mydiv p:first-child{
+    color: olive;
+    font-size: 45px;
+}
+.mydiv p:nth-child(2){
+    color: green;
+    font-size: 35px;
+}
+.mydiv p:nth-child(3){
+    color: yellowgreen;
+    font-size: 25px;
+}
+.mydiv p:nth-child(4){
+    color: red;
+    font-size: 20px;
+}
+.mydiv p:last-child{
+    color: blue;
+    font-size: 15px;
+}

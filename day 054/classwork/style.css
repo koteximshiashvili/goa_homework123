@@ -1,0 +1,47 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+}
+div{
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    transition: 4s ease-in-out;
+    animation: slide 10s infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+@keyframes slide{
+    0% {
+        transform: translateX(100%);
+        background-color: blue;
+        border-radius: 50%;
+    }
+    25%{
+        transform: translateX(-100%);
+        background-color: green;
+        border-radius: 25%;
+        scale: 2;
+    }
+    50%{
+        transform: translateY(100%);
+        background-color: yellow;
+        border-radius: 75%;
+        rotate: 180deg;
+    }
+    75%{
+        transform: translateY(-100%);
+        background-color: orange;
+        border-radius: 10%;
+    }
+    100% {
+        transform: translateX(200px);
+        background-color: red;
+        border-radius: 50%;
+    }
+}

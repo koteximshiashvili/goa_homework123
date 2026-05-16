@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .error {
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <label for="inputField">Enter text :</label>
+    <input type="text" id="inputField" name="inputField" />
+    <p id="errorMessage" class="error">Error: Please enter only letters!</p>
+
+    <script>
+        document.getElementById("inputField").addEventListener("input", function() {
+            const inputValue = document.getElementById("inputField").value;
+            const errorMessage = document.getElementById("errorMessage");
+            const regex = /^[A-Za-z]+$/;
+
+            if (!regex.test(inputValue)) {
+                errorMessage.style.display = "block";
+            } else {
+                errorMessage.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="userID" placeholder="Enter ID">
+    <button onclick="generateID()">Generate ID</button>
+    <button onclick="checkID()">Check ID</button>
+    <p id="result"></p>
+    <script>
+        let data = [];
+
+        function generateID() {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let randomID = '';
+            for (let i = 0; i < 6; i++) {
+                randomID += characters[Math.floor(Math.random() * characters.length)];
+            }
+            data.push(randomID);
+            document.getElementById('result').innerText = `Generated ID: ${randomID}`;
+        }
+
+        function checkID() {
+            const userID = document.getElementById('userID').value;
+            if (data.includes(userID)) {
+                document.getElementById('result').innerText = `ID: ${userID} exists.`;
+            } else {
+                document.getElementById('result').innerText = `ID: ${userID} does not exist.`;
+            }
+        }
+    </script>
+</body>
+</html>

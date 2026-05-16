@@ -1,0 +1,15 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.parent{
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    rotate: 60deg;
+    translate: 40px;
+    transition: 10s ease-in-out;
+}

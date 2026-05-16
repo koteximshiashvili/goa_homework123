@@ -1,0 +1,15 @@
+button{
+    transition: 0.25s linear;
+}
+button::before{
+    content: "div 1";
+    width: 100px;
+    height: 100px;
+    position: relative;
+    background-color: green;
+    top: 100px;
+    visibility: hidden;
+}
+button:hover::before{
+    visibility: visible;
+}

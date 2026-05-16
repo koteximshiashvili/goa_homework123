@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      width: 60%;
+      margin: 50px auto;
+    }
+
+    .carousel {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .carousel1 {
+      display: flex;
+      transition: transform 1s ease-in-out;
+    }
+
+    .item {
+      min-width: 100%;
+      text-align: center;
+      padding: 30px;
+      background: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    .text {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .name {
+      font-weight: bold;
+      color: #555;
+      font-size: 16px;
+    }
+
+    dd {
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="carousel">
+      <div class="carousel1">
+        <div class="item">
+          <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quaerat?</p>
+          <p class="name">Lorem, ipsum.</p>
+          <p class="ddposition">Lorem, ipsum.</p>
+        </div>
+        <div class="item">
+            <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quaerat?</p>
+            <p class="name">Lorem, ipsum.</p>
+            <p class="dd">Lorem, ipsum.</p>
+          </div>
+          <div class="item">
+            <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quaerat?</p>
+            <p class="name">Lorem, ipsum.</p>
+            <p class="dd">Lorem, ipsum.</p>
+          </div>
+      </div>
+    </div>
+  </div>
+  <button class="first">first</button>
+  <button class="second">second</button>
+  <button class="third">third</button>
+
+
+  <script>
+    const carousel = document.querySelector('.carousel');
+    const items = document.querySelectorAll('.item');
+    let index = 0;
+
+    function showNextItem() {
+      const firstItem = carousel.firstElementChild;
+
+      carousel.style.transition = 'transform 1s ease-in-out';
+      carousel.style.overflow = "visible";
+
+      index = (index + 1) % items.length;
+      carousel.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    document.querySelector('.first').addEventListener('click', function(){
+        index = -1
+        items[1].style.opacity = 0.5;
+        items[2].style.opacity = 0.5;
+        items[0].style.opacity = 1;
+        setTimeout(showNextItem(), 3000)
+    })
+    document.querySelector('.second').addEventListener('click', function(){
+        index = 0
+        items[0].style.opacity = 0.5;
+        items[2].style.opacity = 0.5;
+        items[1].style.opacity = 1;
+        setTimeout(showNextItem(), 3000)
+    })
+    document.querySelector('.third').addEventListener('click', function(){
+        index = 1
+        items[1].style.opacity = 0.5;
+        items[0].style.opacity = 0.5;
+        items[2].style.opacity = 1;
+        setTimeout(showNextItem(), 3000)
+    })
+  </script>
+</body>
+</html>

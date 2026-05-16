@@ -1,0 +1,7 @@
+.box{
+    width: 100px;
+    height: 100px;
+    position: relative;
+    background-color: blue;
+    transition: 0.25s linear;
+}

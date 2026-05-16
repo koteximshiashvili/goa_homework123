@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        input {
+            margin-bottom: 10px;
+            padding: 8px;
+            font-size: 14px;
+            width: 100%;
+            max-width: 300px;
+        }
+        input[type="submit"] {
+            width: auto;
+            cursor: pointer;
+        }
+        .error {
+            color: #dc3545;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Form</h2>
+    <form id="registrationForm">
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" name="fullName" required>
+        <div id="fullNameError" class="error"></div>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <div id="emailError" class="error"></div>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <div id="passwordError" class="error"></div>
+
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required>
+        <div id="confirmPasswordError" class="error"></div>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+        <div id="ageError" class="error"></div>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+            const form = document.getElementById('registrationForm');
+            const fullName = document.getElementById('fullName');
+            const email = document.getElementById('email');
+            const password = document.getElementById('password');
+            const confirmPassword = document.getElementById('confirmPassword');
+            const age = document.getElementById('age');
+            const submitButton = form.querySelector('input[type="submit"]');
+            let alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+
+            function validateName() {
+                let valid = true;
+                let errorMsg = '';
+
+                if (fullName.value.length < 3) {
+                    valid = false;
+                    errorMsg = 'Name must be at least 3 characters long.';
+                } else {
+                    for (let i = 0; i < fullName.value.length; i++) {
+                        if (!alphabet.includes(fullName[i])) {
+                            valid = false;
+                            errorMsg = 'Name must contain only letters.';
+                            break;
+                        }
+                    }
+                }
+
+                if (valid) {
+                    fullName.style.backgroundColor = "#d4edda";
+                    document.getElementById('fullNameError').textContent = '';
+                } else {
+                    fullName.style.backgroundColor = "#f8d7da";
+                    document.getElementById('fullNameError').textContent = errorMsg;
+                }
+                return valid;
+            }
+
+            function validateEmail() {
+                let valid = true;
+                let errorMsg = '';
+
+                if (email.value.indexOf('@') === -1 || email.value.indexOf('.') === -1 || email.value.indexOf('@') > email.value.indexOf('.')) {
+                    valid = false;
+                    errorMsg = 'Email must be in the correct format (example@domain.com).';
+                }
+
+                if (valid) {
+                    email.style.backgroundColor = "#d4edda";
+                    document.getElementById('emailError').textContent = '';
+                } else {
+                    email.style.backgroundColor = "#f8d7da";
+                    document.getElementById('emailError').textContent = errorMsg;
+                }
+                return valid;
+            }
+
+            function validatePassword() {
+                let valid = true;
+                let errorMsg = '';
+
+                if (password.value.length < 8) {
+                    valid = false;
+                    errorMsg = 'Password must be at least 8 characters long.';
+                } else if (password.value.indexOf(' ') !== -1) {
+                    valid = false;
+                    errorMsg = 'Password should not contain spaces.';
+                } else {
+                    let hasUppercase = false;
+                    let hasNumber = false;
+                    let hasSpecial = false;
+                    for (let i = 0; i < password.value.length; i++) {
+                        if (password.value[i] >= 'A' && password.value[i] <= 'Z') {
+                            hasUppercase = true;
+                        }
+                        if (password.value[i] >= '0' && password.value[i] <= '9') {
+                            hasNumber = true;
+                        }
+                        if ("!@#$%^&*".indexOf(password.value[i]) !== -1) {
+                            hasSpecial = true;
+                        }
+                    }
+
+                    if (!hasUppercase || !hasNumber || !hasSpecial) {
+                        valid = false;
+                        errorMsg = 'Password must contain at least one uppercase letter one number and one special character.';
+                    }
+                }
+
+                if (valid) {
+                    password.style.backgroundColor = "#d4edda";
+                    document.getElementById('passwordError').textContent = '';
+                } else {
+                    password.style.backgroundColor = "#f8d7da";
+                    document.getElementById('passwordError').textContent = errorMsg;
+                }
+                return valid;
+            }
+
+            function validateConfirmPassword() {
+                let valid = true;
+
+                if (confirmPassword.value !== password.value) {
+                    valid = false;
+                    document.getElementById('confirmPasswordError').textContent = 'Passwords must match.';
+                    confirmPassword.style.backgroundColor = "#f8d7da";
+                } else {
+                    confirmPassword.style.backgroundColor = "#d4edda";
+                    document.getElementById('confirmPasswordError').textContent = '';
+                }
+
+                return valid;
+            }
+
+            function validateAge() {
+                let valid = true;
+                let errorMsg = '';
+
+                if (age.value < 18) {
+                    valid = false;
+                    errorMsg = 'Age must be 18 or older.';
+                }
+
+                if (valid) {
+                    age.style.backgroundColor = "#d4edda";
+                    document.getElementById('ageError').textContent = '';
+                } else {
+                    age.style.backgroundColor = "#f8d7da";
+                    document.getElementById('ageError').textContent = errorMsg;
+                }
+                return valid;
+            }
+
+            fullName.addEventListener('keyup', validateName);
+            email.addEventListener('keyup', validateEmail);
+            password.addEventListener('keyup', validatePassword);
+            confirmPassword.addEventListener('keyup', validateConfirmPassword);
+            age.addEventListener('keyup', validateAge);
+
+            form.addEventListener('input', function () {
+                if (validateName() && validateEmail() && validatePassword() && validateConfirmPassword() && validateAge()) {
+                    submitButton.disabled = false;
+                } else {
+                    submitButton.disabled = true;
+                }
+            });
+    </script>
+</body>
+</html>

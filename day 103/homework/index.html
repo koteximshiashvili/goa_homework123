@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        #start-screen {
+            display: block;
+        }
+        #game-screen {
+            display: none;
+        }
+        #game {
+            margin-top: 20px;
+        }
+        .score {
+            font-size: 24px;
+        }
+        .input-container {
+            margin-top: 20px;
+        }
+        .input-container input {
+            font-size: 20px;
+            padding: 5px;
+        }
+        .color-picker {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="start-screen">
+        <h1>Register</h1>
+        <input type="text" id="userName" placeholder="Enter your name" required>
+        <button onclick="startGame()">Start Game</button>
+    </div>
+
+    <div id="game-screen">
+        <h1 id="welcomeMessage"></h1>
+        <p class="score">Score: <span id="score">0</span></p>
+        <p>Guess Number: <span id="randomNumber"></span></p>
+        <div class="color-picker">
+            <label for="colorPicker">Pick a color:</label>
+            <input type="color" id="colorPicker" onchange="changeBackgroundColor()">
+        </div>
+        <div class="input-container">
+            <input type="number" id="guessInput" placeholder="Guess number" />
+            <button onclick="checkGuess()">Guess</button>
+        </div>
+        <div id="wrong"></div>
+    </div>
+
+    <script>
+        let userName = '';
+        let score = 0;
+        let randomNumber = 0;
+        let difficultyLevel = 2;
+
+        if(localStorage.getItem('userName')) {
+            userName = localStorage.getItem('userName');
+            document.getElementById('start-screen').style.display = 'none';
+            document.getElementById('game-screen').style.display = 'block';
+            startGame();
+        }
+
+        function startGame() {
+            if (!userName) {
+                userName = document.getElementById('userName').value;
+                localStorage.setItem(userName, userName);
+                document.getElementById('welcomeMessage').textContent = `Welcome ${userName}!`;
+                document.getElementById('start-screen').style.display = 'none';
+                document.getElementById('game-screen').style.display = 'block';
+                startNewRound();
+            }
+        }
+
+        function startNewRound() {
+            randomNumber = generateRandomNumber();
+            document.getElementById('randomNumber').textContent = randomNumber;
+            document.getElementById('guessInput').value = '';
+            document.getElementById('wrong').textContent = '';
+        }
+
+        function generateRandomNumber() {
+            return Math.floor(Math.random() * difficultyLevel);
+        }
+
+        function checkGuess() {
+            const userGuess = parseInt(document.getElementById('guessInput').value);
+            if (userGuess === randomNumber) {
+                score++;
+                document.getElementById('score').textContent = score;
+                difficultyLevel *= 2;
+                startNewRound();
+            } else {
+                document.getElementById('wrong').textContent = 'Wrong answer try again!';
+            }
+        }
+
+        function changeBackgroundColor() {
+            const selectedColor = document.getElementById('colorPicker').value;
+            document.body.style.backgroundColor = selectedColor;
+        }
+</script>
+</body>
+</html>

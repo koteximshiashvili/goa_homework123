@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ol{
+    list-style-type: square;
+    list-style-position: inside;
+    text-align: center;
+    color: red;
+}
+ul{
+    list-style-type: georgian;
+    list-style-position: inside;
+    text-align: right;
+    color: yellow;
+}

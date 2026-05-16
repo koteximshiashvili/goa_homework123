@@ -1,0 +1,17 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.parent{
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    transition: 0.5s ease-in-out;
+}
+.parent:hover{
+    background-color: blue;
+    transform: scale(1.1) rotate(20deg) translate(40px);
+}

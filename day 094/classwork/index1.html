@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            background-color: black;
+            color: white;
+            width: 200px;
+            height: 200px;
+        }
+        button:hover{
+            animation: colorchange infinite 4s;
+        }
+        @keyframes colorchange{
+    0%{background-color: red;}
+    20%{background-color: orange;}
+    40%{background-color: yellow;}
+    60%{background-color: green;}
+    80%{background-color: blue;}
+    100%{background-color: purple;}
+}
+    </style>
+</head>
+<body>
+    <button>color</button>
+</body>
+</html>

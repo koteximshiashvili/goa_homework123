@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        position: relative;
+        flex-direction: column;
+        top: 60px;
+        right: 0;
+        background-color: #333;
+        width: 100%;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+}

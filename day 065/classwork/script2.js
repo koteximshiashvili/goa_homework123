@@ -1,0 +1,10 @@
+let a = -0;
+let b = NAN;
+let c = "halo" === "hello";
+let d = "hi";
+let e = "true";
+let f = undefined === null;
+let g = "hello";
+let h = "hi";
+let i = 5 > 1;
+let j = null;

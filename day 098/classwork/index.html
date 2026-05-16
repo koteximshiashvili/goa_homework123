@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #emails-list {
+            margin-top: 20px;
+        }
+        #emails-list li {
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 5px;
+        }
+        select, button {
+            margin-top: 10px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Email Filter</h1>
+    
+    <label for="subject-filter">Select Subject:</label>
+    <select id="filter">
+        <option value="Travel">Travel</option>
+        <option value="Report">Report</option>
+        <option value="Awareness">Awareness</option>
+    </select>
+    <button onclick="filterEmails()">Filter</button>
+
+    <ul id="emails-list"></ul>
+    <h1>Add An Email</h1>
+    <input type="text" placeholder="Enter subject" class="subj">
+    <input type="text" placeholder="Enter content" class="cont">
+    <button class="btn">Send Email</button>
+    <script>
+        const emails = [
+            { subject: "Travel", content: "dont forget your tickets", receivedDate: "2024-12-15" },
+            { subject: "Report", content: "please read the latest report", receivedDate: "2024-12-12" },
+            { subject: "Travel", content: "i have a great offer for you", receivedDate: "2024-12-13" },
+            { subject: "Awareness", content: "there may be mistakes", receivedDate: "2024-12-10" }
+        ];
+        document.querySelector('.btn').addEventListener('click', function(){
+            const date = new Date()
+            emails.push({ subject: document.querySelector('.subj').value, content: document.querySelector('.cont').value, receivedDate: `${date.getFullYear()}-${date.getMonth()}-${date.getDay()}`})
+        })
+
+        function filterEmails() {
+            const filterValue = document.getElementById('filter').value;
+            const emailList = document.getElementById('emails-list');
+            emailList.innerHTML = '';
+
+            for (const email of emails) {
+                if (email.subject === filterValue) {
+                    const emailItem = document.createElement('li');
+                    emailItem.innerHTML = `<strong>Subject:</strong> ${email.subject} <br><strong>Content:</strong> ${email.content} <br><strong>Received:</strong> ${email.receivedDate}`;
+                    emailList.appendChild(emailItem);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

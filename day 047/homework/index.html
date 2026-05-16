@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-Column Preview Card Component</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <style>
+      /* General styles */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card-icon {
+  display: flex;
+    justify-self: flex-start;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+}
+
+.card-title {
+  text-transform: uppercase;
+  font-family: "Big Shoulders Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  display: flex;
+    justify-self: flex-start;
+    font-size: 3em;
+    margin: 0;
+    color: hsla(0, 0%, 100%, 0.75);
+}
+
+.card-text {
+  font-family: "Lexend Deca", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 30px;
+  display: flex;
+    justify-self: flex-start;
+    text-align: justify;
+    font-size: 19px;
+    color: #8ecbd4;
+    margin: 10px 0;
+}
+
+.card-btn {
+  display: flex;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.card-link:hover {
+    text-decoration: underline;
+}
+#c1{
+  background: hsl(31, 77%, 52%);
+  width: 350px;
+  height: 60vh;
+  padding: 40px 40px 40px 40px;
+}
+#c2{
+  background: hsl(184, 100%, 22%);
+  width: 350px;
+  height: 60vh;
+  padding: 40px 40px 40px 40px;
+}
+#c3{
+  background: hsl(179, 100%, 13%);
+  width: 350px;
+  height: 60vh;
+  padding: 40px 40px 40px 40px;
+}
+#c1 button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+  color: hsl(31, 77%, 52%);
+  background: hsl(0, 0%, 95%);
+  width: 200px;
+  height: 50px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+#c2 button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+  color: hsl(184, 100%, 22%);
+  background: hsl(0, 0%, 95%);
+  width: 200px;
+  height: 50px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+#c3 button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+  color: hsl(179, 100%, 13%);
+  background: hsl(0, 0%, 95%);
+  width: 200px;
+  height: 50px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card" id="c1">
+            <img src="images/icon-sedans.svg" alt="Sedans" class="card-icon">
+            <h2 class="card-title">Sedans</h2>
+            <p class="card-text">Choose a sedan for its affordability and excellent fuel economy. Ideal for city driving.</p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <button class="card-btn">Learn More</button>
+        </div>
+        <div class="card" id="c2">
+            <img src="images/icon-suvs.svg" alt="SUVs" class="card-icon">
+            <h2 class="card-title">SUVs</h2>
+            <p class="card-text">Take an SUV for its spacious interior, power, and off-road capabilities. Perfect for adventure.</p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <button class="card-btn">Learn More</button>
+        </div>
+        <div class="card" id="c3">
+            <img src="images/icon-luxury.svg" alt="Luxury" class="card-icon">
+            <h2 class="card-title">Luxury</h2>
+            <p class="card-text">Experience the pinnacle of comfort and performance with a luxury car. Designed for ultimate driving pleasure.</p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <button class="card-btn">Learn More</button>
+        </div>
+    </div>
+</body>
+</html>

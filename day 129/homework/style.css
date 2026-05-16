@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,800;1,800&display=swap');
+*{
+    font-family: "Montserrat";
+}
+body{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+.user{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 500px;
+    height: 490px;
+    background-color: white;
+    border-radius: 10px;
+    border: none;
+    padding: 30px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    word-break: break-all;
+}
+.user .img1{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    z-index: 2;
+    border: 5px solid white;
+}
+.user .img{
+    width: 110%;
+    height: 20%;
+    display: flex;
+}
+.user .img img{
+    position: absolute;
+    width: 590px;
+    height: 45%;
+    left: -20px;
+    top: 0;
+}
+.user .name{
+    color: black;
+    font-weight: bolder;
+    font-size: 24px;
+    position: relative;
+    bottom: 10px;
+}
+.user .company{
+    font-size: 20px;
+    font-weight: bolder;
+    color: rgb(129, 127, 127);
+    position: relative;
+    bottom: 20px;
+}
+.user .d{
+    display: flex;
+    gap: 10px;
+    position: relative;
+    bottom: 20px;
+}
+.user .d span{
+    font-size: 20px;
+    font-weight: bolder;
+    color: rgb(105, 104, 104);
+}
+.user button{
+    width: 140px;
+    height: 40px;
+    border-radius: 20px;
+    color: white;
+    background-color: #141828;
+    font-size: 18px;
+}

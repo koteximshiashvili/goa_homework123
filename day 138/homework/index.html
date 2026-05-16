@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="flex justify-center">
+    <div id="products" class="flex-wrap w-200 flex space-x-4 space-y-4">
+
+    </div>
+    <div id="cart" class="w-100 h-25 rounded border-4 border-orange-400 flex-col flex text-center align-center">
+        <span id="total" class="text-3xl font-bold">Order Total: $0</span>
+        <button onclick='alert("bought")' id="btn" class="text-2xl text-white font-bold w-70 h-10 rounded bg-[#c83c0e] translate-x-15">Confirm Order</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+body{
+    background-image: url("image.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.one{
+    color:blue;
+}
+.two{
+    color: red;
+}
+#my{
+    color: yellow;
+}
+
+div p b{
+    color: red;
+}
+div{
+    border: 1px solid black;
+}

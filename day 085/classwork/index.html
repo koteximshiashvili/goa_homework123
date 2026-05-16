@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="d1">
+        <div class="d2">
+            <div class="d3">
+                <div class="d4">
+                    <div class="d5">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        for(let i = 1; i !== 5; i++){
+        document.querySelector('.d' + i).addEventListener("click", function(e){
+            console.log(i)
+            if (i % 2 == 0){
+                e.stopPropagation()
+            }
+        })
+        }
+    </script>
+</body>
+</html>

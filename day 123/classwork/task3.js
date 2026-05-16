@@ -1,0 +1,1 @@
+new Promise((resolve, reject) => resolve(5)).then(res => console.log(res * 2))

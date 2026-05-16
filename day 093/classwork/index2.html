@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .counter {
+            display: none;
+            margin-top: 20px;
+        }
+        button {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button onclick="openCounter(1)">Open Counter 1</button>
+        <button onclick="openCounter(2)">Open Counter 2</button>
+        <button onclick="openCounter(3)">Open Counter 3</button>
+    </div>
+
+    <div id="counter1" class="counter">
+        <h3>Counter 1</h3>
+        <p id="count1">0</p>
+        <button onclick="increment(1)">Increment</button>
+        <button onclick="decrement(1)">Decrement</button>
+        <button onclick="reset(1)">Reset</button>
+        <input type="checkbox" id="lock1" onclick="Lock(1)"> Lock
+        <button onclick="undo(1)">Undo</button>
+        <button onclick="redo(1)">Redo</button>
+    </div>
+
+    <div id="counter2" class="counter">
+        <h3>Counter 2</h3>
+        <p id="count2">0</p>
+        <button onclick="increment(2)">Increment</button>
+        <button onclick="decrement(2)">Decrement</button>
+        <button onclick="reset(2)">Reset</button>
+        <input type="checkbox" id="lock2" onclick="Lock(2)"> Lock
+        <button onclick="undo(2)">Undo</button>
+        <button onclick="redo(2)">Redo</button>
+    </div>
+
+    <div id="counter3" class="counter">
+        <h3>Counter 3</h3>
+        <p id="count3">0</p>
+        <button onclick="increment(3)">Increment</button>
+        <button onclick="decrement(3)">Decrement</button>
+        <button onclick="reset(3)">Reset</button>
+        <input type="checkbox" id="lock3" onclick="Lock(3)"> Lock
+        <button onclick="undo(3)">Undo</button>
+        <button onclick="redo(3)">Redo</button>
+    </div>
+
+    <script>
+        let counters = {
+            1: { value: 0, history: [], redoHistory: [], locked: false },
+            2: { value: 0, history: [], redoHistory: [], locked: false },
+            3: { value: 0, history: [], redoHistory: [], locked: false }
+        };
+
+        function openCounter(counterId) {
+            let counter = document.getElementById("counter" + counterId);
+            counter.style.display = "block";
+            document.querySelector("button[onclick='openCounter(" + counterId + ")']").style.display = "none";
+        }
+
+        function increment(counterId) {
+            if (counters[counterId].locked){ 
+            return;
+            }
+            counters[counterId].history.push(counters[counterId].value);
+            counters[counterId].redoHistory = [];
+            counters[counterId].value++;
+            document.getElementById("count" + counterId).innerText = counters[counterId].value;
+        }
+
+        function decrement(counterId) {
+            if (counters[counterId].locked){
+                return;
+            }
+            counters[counterId].history.push(counters[counterId].value);
+            counters[counterId].redoHistory = [];
+            counters[counterId].value--;
+            document.getElementById("count" + counterId).innerText = counters[counterId].value;
+        }
+
+        function reset(counterId) {
+            if (counters[counterId].locked){ 
+                return;
+            }
+            counters[counterId].history.push(counters[counterId].value);
+            counters[counterId].redoHistory = [];
+            counters[counterId].value = 0;
+            document.getElementById("count" + counterId).innerText = counters[counterId].value;
+        }
+
+        function Lock(counterId) {
+            counters[counterId].locked = document.getElementById("lock" + counterId).checked;
+        }
+
+        function undo(counterId) {
+            if (counters[counterId].history.length > 0) {
+                counters[counterId].redoHistory.push(counters[counterId].value);
+                counters[counterId].value = counters[counterId].history.pop();
+                document.getElementById("count" + counterId).innerText = counters[counterId].value;
+            }
+        }
+
+        function redo(counterId) {
+            if (counters[counterId].redoHistory.length > 0) {
+                counters[counterId].history.push(counters[counterId].value);
+                counters[counterId].value = counters[counterId].redoHistory.pop();
+                document.getElementById("count" + counterId).innerText = counters[counterId].value;
+            }
+        }
+    </script>
+</body>
+</html>

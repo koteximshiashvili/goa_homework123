@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto 1fr auto;
+            gap: 20px;
+        }
+
+        .top {
+            background-color: #4CAF50;
+            height: 100px;
+        }
+
+        .middle {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .middle div {
+            background-color: #2196F3;
+            height: 100px;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .bottom {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .bottom div {
+            background-color: #f44336;
+            height: 100px;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .middle {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .bottom {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .middle {
+                grid-template-columns: 1fr;
+            }
+
+            .bottom {
+                grid-template-columns: 1fr;
+            }
+
+            .top {
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="top"></div>
+    <div class="middle">
+        <div>Div 1</div>
+        <div>Div 2</div>
+        <div>Div 3</div>
+        <div>Div 4</div>
+    </div>
+    <div class="bottom">
+        <div>Div 5</div>
+        <div>Div 6</div>
+    </div>
+</div>
+
+</body>
+</html>

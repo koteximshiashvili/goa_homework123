@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f3f4f6;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .container {
+            font-size: 20px;
+        }
+        .upgrade {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cookie Clicker</h1>
+    <div class="container">
+        <p>Cookies: <span id="cookies">0</span></p>
+        <p>Gold: <span id="gold">0</span></p>
+    </div>
+
+    <button id="cookieButton" class="button">Click Cookie</button>
+
+    <div class="upgrade">
+        <h2>Upgrades</h2>
+        <button id="bigThumb" class="button">Big Thumb - 50 Gold</button>
+        <button id="betterMines" class="button">Better Mines - 100 Cookies</button>
+        <button id="doubleCookies" class="button">Double Cookies - 200 Gold</button>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

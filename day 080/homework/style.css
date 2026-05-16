@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,700;1,700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+
+/* #292829 შავი
+#249B14 მწვანე
+#D6D8D5 თეთრი */
+
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: sans-serif;
+    background-image: url("https://cdn.discordapp.com/attachments/1305569937162764340/1305590955356848250/bg-img.png?ex=673395d4&is=67324454&hm=521ac083a7e4b6ea3e43da544bdae5b02fac69dafe7687c288c0e6509e7852e4&");
+}
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    padding: 10px;
+    color: #249B14;
+}
+header nav{
+    display: flex;
+    gap: 10px;
+    font-size: 24px;
+}
+header h1{
+    color: white;
+    font-size: 40px;
+}
+
+#p-1{
+    font-size: 50px;
+    color: white;
+    width: 100px;
+    margin-left: 100px;
+}
+.GOA {
+    position: relative;
+    top: 100px;
+    left: 200px;
+    color: #D6D8D5;
+    font-size: 60px;
+ }
+
+
+
+.information{
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+    color: rgb(211, 199, 199);
+    transition: 0.75s linear;
+    transform: translateX(2500px)
+}
+
+.information , #sec1{
+    font-size: 30px;
+}
+.information , #sec2{
+    font-size: 30px;
+}
+
+.information , #sec3{
+    font-size: 30px;
+}
+
+#div1{
+    width: 100px;
+    height: 5px;
+    background-color: red;
+    border-radius: 10px;
+}
+
+#div2{
+    width:100px;
+    height: 5px;
+    background-color: red;
+    position: relative;
+    left: 50px;
+    bottom: 40px;
+    border-radius: 10px;
+}
+.sec1{
+    color: white;
+    font-size: 35px;
+}
+
+#sec1 , #sec2 , #sec3 {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 22px;
+    color: white;
+    height: auto;
+    border: 2px solid gold;
+    /* display: flex;
+    justi
+    
+    fy-content: space-between; */
+}
+
+#goa {
+    border-radius: 50%;
+    width: 150px;
+    border: 2px white solid;
+}
+
+#photo1 , #photo2 , #photo3 , #photo4 {
+    border: 1px white solid;
+    width: 300px;
+}
+
+body {
+    background-image: url("https://cdn.discordapp.com/attachments/1305569937162764340/1305590955356848250/bg-img.png?ex=673395d4&is=67324454&hm=521ac083a7e4b6ea3e43da544bdae5b02fac69dafe7687c288c0e6509e7852e4&");
+}
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px;
+    transition: 0.25s;
+}
+
+nav ul li a:hover {
+    background-color: #575757;
+    border-radius: 20px;
+    box-shadow: 1px 3px 4px #333, 3px 2px 2px #444444, 3px 6px 2px #4d4b4b, 1px 1px 2px #2e2e2e;
+}

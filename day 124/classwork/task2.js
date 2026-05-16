@@ -1,0 +1,1 @@
+new Promise((resolve, reject) => setTimeout(() => reject("failed"), 1000)).catch(err => console.log(err))

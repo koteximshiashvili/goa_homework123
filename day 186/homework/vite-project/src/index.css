@@ -1,0 +1,15 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,700;1,700&display=swap');
+*{
+    transition: 0.25s linear;
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+}
+body{
+    height: 100vh;
+    background-image: linear-gradient(180deg, #040918 0%, #091540 100%);
+}

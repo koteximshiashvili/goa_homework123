@@ -1,0 +1,7 @@
+def sum_digits(n):
+    if n < 0:
+        return 0
+    result = 0
+    for i in str(n):
+        result += int(i)
+    return result

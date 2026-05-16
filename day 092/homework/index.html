@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 50px;
+    }
+    .password-container {
+      width: 300px;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .strength {
+      padding: 10px;
+      text-align: center;
+      border-radius: 5px;
+      color: white;
+    }
+    .weak {
+      background-color: red;
+    }
+    .medium {
+      background-color: yellow;
+      color: black;
+    }
+    .strong {
+      background-color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="password-container">
+    <label for="password">Password:</label>
+    <input type="password" id="password" placeholder="Enter password" oninput="checkPasswordStrength()">
+    <div id="strengthMessage" class="strength"></div>
+  </div>
+
+  <script>
+    function checkPasswordStrength() {
+      const password = document.getElementById('password').value;
+      const strengthMessage = document.getElementById('strengthMessage');
+      const containsNumberOrUppercase = /[A-Z]/.test(password) || /\d/.test(password);
+      const containsSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+      let strength = 'Weak';
+      let backgroundColor = 'red';
+
+      if (password.length >= 10 && containsNumberOrUppercase && containsSpecialChar) {
+        strength = 'Strong';
+        backgroundColor = 'green';
+      } else if (password.length >= 8 && containsNumberOrUppercase) {
+        strength = 'Medium';
+        backgroundColor = 'yellow';
+      }
+
+      strengthMessage.textContent = `Password Strength: ${strength}`;
+      document.querySelector('.password-container').style.backgroundColor = backgroundColor;
+    }
+  </script>
+
+</body>
+</html>

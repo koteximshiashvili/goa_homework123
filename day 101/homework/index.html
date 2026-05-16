@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .user-card {
+            background-color: #ecf0f1;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+        }
+
+        .user-card p {
+            margin: 5px 0;
+        }
+
+        .user-card .email {
+            font-style: italic;
+            color: #2980b9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Enter Personal Data</h1>
+        <form id="form">
+            <label for="first-name">First Name:</label>
+            <input type="text" id="first-name" required>
+
+            <label for="last-name">Last Name:</label>
+            <input type="text" id="last-name" required>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" required>
+
+            <label for="id">ID Number:</label>
+            <input type="text" id="id" required>
+
+            <label for="height">Height:</label>
+            <input type="text" id="height" required>
+
+            <label for="description">Description:</label>
+            <textarea id="description" required></textarea>
+
+            <button type="submit">Add User</button>
+        </form>
+
+        <h2>Users</h2>
+        <div id="user-list"></div>
+    </div>
+
+    <script>
+        function loadUsers() {
+            const users = getUsers();
+            users.forEach(user => {
+                createUserCard(user.firstName, user.lastName, user.age, user.id, user.height, user.description, user.email);
+            });
+        }
+        window.addEventListener('load', loadUsers)
+        document.getElementById('form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const firstName = document.getElementById('first-name').value;
+            const lastName = document.getElementById('last-name').value;
+            const age = document.getElementById('age').value;
+            const id = document.getElementById('id').value;
+            const height = document.getElementById('height').value;
+            const description = document.getElementById('description').value;
+
+            const email = generateEmail(firstName, lastName, age);
+
+            const userCard = createUserCard(firstName, lastName, age, id, height, description, email);
+            document.getElementById('user-list').appendChild(userCard);
+            const newUser = {
+                firstName: firstName,
+                lastName: lastName,
+                age: age,
+                id: id,
+                height: height,
+                description: description,
+                email: email
+            };
+
+            const users = getUsers();
+            users.push(newUser);
+            localStorage.setItem('users', JSON.stringify(users));
+
+            createUserCard(newUser);
+            document.getElementById('form').reset();
+        });
+
+
+        function getUsers() {
+            const users = localStorage.getItem('users');
+            return users ? JSON.parse(users) : [];
+        }
+
+
+        function generateEmail(firstName, lastName, age) {
+            const randomNumber = Math.floor(Math.random() * 1000);
+            return `${firstName.toLowerCase()}${lastName.toLowerCase()}${age}${randomNumber}@gmail.com`;
+        }
+
+        function createUserCard(firstName, lastName, age, id, height, description, email) {
+            const userCard = document.createElement('div');
+            userCard.className = 'user-card';
+
+            userCard.innerHTML = `
+                <p><b>Name:</b> ${firstName} ${lastName}</p>
+                <p><strong>Age:</b> ${age}</p>
+                <p><b>ID Number:</b> ${id}</p>
+                <p><b>Height:</b> ${height} m</p>
+                <p><b>Description:</b> ${description}</p>
+                <p class="email"><b>Email:</b> ${email}</p>
+            `;
+            document.getElementById('user-list').appendChild(userCard);
+        }
+    </script>
+</body>
+
+</html>

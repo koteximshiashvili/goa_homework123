@@ -1,0 +1,60 @@
+.class1 p{
+    height: 20%;
+    text-align: center;
+}
+.class2 p{
+    height: 15%;
+    text-align: left;
+}
+.class3 p{
+    height: 10%;
+    text-align: right;
+}
+.class4 p{
+    height: 60%;
+    text-align: left;
+}
+.class5 p{
+    height: 30%;
+    text-align: center;
+}
+#id1{
+    text-decoration: overline wavy red;
+    text-align: right;
+}
+#id2{
+    text-decoration: overline dashed black;
+    text-align: center;
+}
+#id3{
+    text-decoration: overline dotted blue;
+    text-align: left;
+}
+#id4{
+    text-decoration: overline solid aqua;
+    text-align: center;
+}
+#id5{
+    text-decoration: overline double green;
+    text-align: right;
+}
+#id6{
+    text-decoration: underline wavy greenyellow;
+    text-align: left;
+}
+#id7{
+    text-decoration: underline dashed firebrick;
+    text-align: left;
+}
+#id8{
+    text-decoration: underline dotted teal;
+    text-align: right;
+}
+#id9{
+    text-decoration: underline solid gold;
+    text-align: center;
+}
+#id10{
+    text-decoration: underline double peru;
+    text-align: right;
+}

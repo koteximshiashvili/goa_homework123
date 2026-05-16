@@ -1,0 +1,30 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+div{
+    position: absolute;
+    border: 10px solid blue;
+}
+.d1{
+    width: 95%;
+    height: 95%;
+}
+.d2{
+    width: 90%;
+    height: 90%;
+}
+.d3{
+    width: 85%;
+    height: 85%;
+}
+.d4{
+    width: 80%;
+    height: 80%;
+}
+.d5{
+    width: 75%;
+    height: 75%;
+}
