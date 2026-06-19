@@ -43,14 +43,6 @@ class Graph {
 
         delete this.adjacencyList[node];
     }
-    bfs(){
-        let res = []
-        
-        for(let i = 0; i < Object.values(this.adjacencyList)[0].length; i++){
-            res.push(Object.keys(this.adjacencyList)[i]);
-            for(let j = 0; )
-        }
-    }
 
 
 }
